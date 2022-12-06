@@ -25,6 +25,7 @@ class User(db.Model): #one user has many bookings - one to many relationship
 
     location = db.relationship("Location", back_populates="user")
     review = db.relationship("Review", back_populates="user")
+    recipe = db.relationship("Recipe", back_populates="user")
 
     def __repr__(self):
         return f'<User user_id={self.user_id} email={self.email} fname={self.fname} lname ={self.lname}>'
@@ -67,11 +68,11 @@ class Location(db.Model): #one location has many reviews
     description = db.Column(db.String)
     img = db.Column(db.String)
 
-    review = db.relationship("Review", back_populates="location")
-    user = db.relationship("User", back_populates="location")
+    review = db.relationship("Review", back_populates="locations")
+    user = db.relationship("User", back_populates="locations")
 
     def __repr__(self):
-        return f'<Location location_id={self.location_id} location_title={self.location_title} price={self.price} amenities= {self.amenities}>'
+        return f'<Location location_id={self.location_id} location_title={self.location_title} price={self.price}>'
 
 
 
@@ -100,7 +101,7 @@ def connect_to_db(app):
     """Connect to database."""
 
     #stating which db to connect to
-    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///projectdb"
+    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://speakeasydb"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     # this would output the raw SQL, currently off as it can be noisy
@@ -111,13 +112,14 @@ def connect_to_db(app):
 
 
 
+
 #dunder main statement
 if __name__ == "__main__":
     import os
 
     #need to change text here
-    os.system("dropdb projectdb --if-exists")
-    os.system("createdb projectdb")
+    os.system("dropdb speakeasydb --if-exists")
+    os.system("createdb speakeasydb")
 
     connect_to_db(app)
 
