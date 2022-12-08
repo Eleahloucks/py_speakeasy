@@ -1,13 +1,21 @@
-""" Models for Speakeasy app. """
+# """Models for speakeasy app."""
+
+# from flask_sqlalchemy import SQLAlchemy
+
+# db = SQLAlchemy()
+""" Models for Innsite app. """
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
 db = SQLAlchemy()
 
 #this database defines the tables in an obj oriented way.
     #it outlines each table and the fields that exist for each
+
+
 
 class User(db.Model): #one user has many bookings - one to many relationship
     """A user."""
@@ -25,12 +33,9 @@ class User(db.Model): #one user has many bookings - one to many relationship
 
     location = db.relationship("Location", back_populates="user")
     review = db.relationship("Review", back_populates="user")
-    recipe = db.relationship("Recipe", back_populates="user")
 
     def __repr__(self):
         return f'<User user_id={self.user_id} email={self.email} fname={self.fname} lname ={self.lname}>'
-
-
 
 #many to many relationship between users a locations, middle table that has reviews in it.
 #similar to locamen table below but with its own review attribute
@@ -74,8 +79,6 @@ class Location(db.Model): #one location has many reviews
     def __repr__(self):
         return f'<Location location_id={self.location_id} location_title={self.location_title} price={self.price}>'
 
-
-
 class Recipe(db.Model): #one recipe is related to a user that could have uploaded many recipies - one to many relationship
     """A recipe."""
 
@@ -95,13 +98,12 @@ class Recipe(db.Model): #one recipe is related to a user that could have uploade
         return f'<Recipe recipe_id={self.recipe_id} recipe_title={self.recipe_title}>'
 
 
-
 #connect to db took syntax from many to many lecture demo
 def connect_to_db(app):
     """Connect to database."""
 
     #stating which db to connect to
-    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://speakeasydb"
+    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql:///projectdb"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     # this would output the raw SQL, currently off as it can be noisy
@@ -110,6 +112,7 @@ def connect_to_db(app):
     db.app = app
     db.init_app(app)
 
+    print("Connected to the db!")
 
 
 
@@ -118,10 +121,12 @@ if __name__ == "__main__":
     import os
 
     #need to change text here
-    os.system("dropdb speakeasydb --if-exists")
-    os.system("createdb speakeasydb")
+    os.system("dropdb projectdb --if-exists")
+    os.system("createdb projectdb")
 
     connect_to_db(app)
+    with app.app_context():
+        connect_to_db(app)
 
-    # Make our tables
-    db.create_all()
+        # Make our tables
+        db.create_all()
