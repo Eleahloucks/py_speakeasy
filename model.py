@@ -20,7 +20,7 @@ db = SQLAlchemy()
 class User(db.Model): #one user has many bookings - one to many relationship
     """A user."""
 
-    __tablename__ = 'users'
+    __tablename__ = "users"
 
     user_id = db.Column(db.Integer,
                         autoincrement= True,
@@ -31,8 +31,8 @@ class User(db.Model): #one user has many bookings - one to many relationship
     password = db.Column(db.String)
     img = db.Column(db.String)
 
-    location = db.relationship("Location", back_populates="user")
-    review = db.relationship("Review", back_populates="user")
+    # locations = db.relationship("Location", back_populates="user")
+    reviews = db.relationship("Review", back_populates="users")
 
     def __repr__(self):
         return f'<User user_id={self.user_id} email={self.email} fname={self.fname} lname ={self.lname}>'
@@ -51,8 +51,8 @@ class Review(db.Model):
     title = db.Column(db.Text, nullable=False)
     score = db.Column(db.Integer) #should be 1-5
 
-    location = db.relationship("Location", back_populates="reviews")
-    user = db.relationship("User", back_populates="reviews")
+    locations = db.relationship("Location", back_populates="reviews")
+    users = db.relationship("User", back_populates="reviews")
 
 
     def __repr__(self):
@@ -62,7 +62,7 @@ class Review(db.Model):
 class Location(db.Model): #one location has many reviews
     """A location."""
 
-    __tablename__ = 'locations'
+    __tablename__ = "locations"
 
     location_id = db.Column(db.Integer,
                         autoincrement= True,
@@ -73,8 +73,8 @@ class Location(db.Model): #one location has many reviews
     description = db.Column(db.String)
     img = db.Column(db.String)
 
-    review = db.relationship("Review", back_populates="locations")
-    user = db.relationship("User", back_populates="locations")
+    reviews = db.relationship("Review", back_populates="locations")
+    # user = db.relationship("User", back_populates="locations")
 
     def __repr__(self):
         return f'<Location location_id={self.location_id} location_title={self.location_title} price={self.price}>'
@@ -82,7 +82,7 @@ class Location(db.Model): #one location has many reviews
 class Recipe(db.Model): #one recipe is related to a user that could have uploaded many recipies - one to many relationship
     """A recipe."""
 
-    __tablename__ = 'recipes'
+    __tablename__ = "recipes"
 
     recipe_id = db.Column(db.Integer,
                         autoincrement= True,
@@ -92,7 +92,7 @@ class Recipe(db.Model): #one recipe is related to a user that could have uploade
     recipe_specs = db.Column(db.String)
 
     #set up relationship to locations and location_amenties middle table
-    user = db.relationship("User", back_populates = "recipes")
+    users = db.relationship("User", back_populates = "recipes")
 
     def __repr__(self):
         return f'<Recipe recipe_id={self.recipe_id} recipe_title={self.recipe_title}>'

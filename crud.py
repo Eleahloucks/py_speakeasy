@@ -1,7 +1,7 @@
 """CRUD operations."""
 #CRUD - created helper functions that manage operations of create read update and delete. Doesnt have to be named crud.
 
-from model import db, User, Location, Booking, Amenity, LocationAmenity, Review, Image, connect_to_db
+from model import db, User, Location, Review, connect_to_db
 from datetime import datetime
 
 
