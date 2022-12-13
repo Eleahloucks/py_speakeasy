@@ -48,14 +48,12 @@ print(user_3)
 #SAMPLE LOCATIONS
 
 
-# location_1 = create_location(
-#   'Boulder, CO',
-#   1869,
-#   "Classic Craftsman in Colorado.",
-#   "Made for a cozy mountain getaway, Boulder University Hill maintains its original wooden banister, fireplaces, and wooden floorboards. It has a wine cellar downstairs, and its large back deck is perfect for relaxing with your housemates. The neighborhood is known for its hilly roads, Victorian houses, and its close proximity to UC Boulder. It's a very bikeable area, and just minutes from the Boulder Farmer's Market or Pearl Street, where you'll find great restaurants, cafes, and shopping. Outsite Boulder - University Hill is a serviced coliving space designed to be the perfect hub for digital nomads, flexible professionals, and business travellers looking to live, work, and connect.",
-#   "/static/img/boulder.jpeg",
-#   [amenity_1, amenity_2, amenity_3, amenity_4, amenity_5, amenity_6, amenity_7, amenity_10, amenity_16, amenity_17, amenity_18, amenity_19, amenity_20]
-#   )
+location_1 = create_location(
+  'Boulder, CO',
+  1869,
+  "Classic Craftsman in Colorado.",
+  "Made for a cozy mountain getaway, Boulder University Hill maintains its original wooden banister, fireplaces, and wooden floorboards. It has a wine cellar downstairs, and its large back deck is perfect for relaxing with your housemates. The neighborhood is known for its hilly roads, Victorian houses, and its close proximity to UC Boulder. It's a very bikeable area, and just minutes from the Boulder Farmer's Market or Pearl Street, where you'll find great restaurants, cafes, and shopping. Outsite Boulder - University Hill is a serviced coliving space designed to be the perfect hub for digital nomads, flexible professionals, and business travellers looking to live, work, and connect.",
+  "/static/img/boulder.jpeg")
 # location_2 = create_location(
 #   "Lisbon, Portugal",
 #   1365,
@@ -147,13 +145,13 @@ print(user_3)
 
 
 
-# review_1 = create_review(title = "Amazing stay!", body = "I was so happy to spend a full two months at the Outsite house in North Boulder! ful roommates during my stay - I felt so lucky! Don't hesitate to spend time her if you love the outdoors and nature", score = 5, user_id = 1, location_id = 1)
-# review_2 = create_review("Great and affordable to remote work and meet others!", "Outsite was truly a great experience. The WhatsApp group was an easy way to connect with others traveling/working in Lisbon. The accommodations are clean and kept up nicely by staff and others staying", 5, 2, 2)
-# review_3 = create_review("The Location, the people and the kitchen!","My stay in San Francisco was great. The house is large and in a perfect Pac heights location. It's very walkable with lots of restaurants, parks and studios near by. There was ample space to work and the kitchen was great to cook in!", 4, 3, 3 )
-# review_4 = create_review(title = "Amazing stay!", body = "I was so happy to spend a full two months at the Outsite house in North Boulder! ful roommates during my stay - I felt so lucky! Don't hesitate to spend time her if you love the outdoors and nature", score = 5, user_id = 1, location_id = 4)
-# review_5 = create_review("Great and affordable to remote work and meet others!", "Outsite was truly a great experience. The WhatsApp group was an easy way to connect with others traveling/working in Lisbon. The accommodations are clean and kept up nicely by staff and others staying", 5, 2, 5)
-# review_6= create_review("The Location, the people and the kitchen!","My stay in San Francisco was great. The house is large and in a perfect Pac heights location. It's very walkable with lots of restaurants, parks and studios near by. There was ample space to work and the kitchen was great to cook in!", 4, 3, 6 )
-# review_7 = create_review(title = "Amazing stay!", body = "I was so happy to spend a full two months at the Outsite house in North Boulder! ful roommates during my stay - I felt so lucky! Don't hesitate to spend time her if you love the outdoors and nature", score = 5, user_id = 1, location_id = 7)
+review_1 = create_review(title = "Amazing stay!", body = "I was so happy to spend a full two months at the Outsite house in North Boulder! ful roommates during my stay - I felt so lucky! Don't hesitate to spend time her if you love the outdoors and nature", score = 5, user_id = 1, location_id = 1)
+review_2 = create_review("Great and affordable to remote work and meet others!", "Outsite was truly a great experience. The WhatsApp group was an easy way to connect with others traveling/working in Lisbon. The accommodations are clean and kept up nicely by staff and others staying", 5, 2, 1)
+review_3 = create_review("The Location, the people and the kitchen!","My stay in San Francisco was great. The house is large and in a perfect Pac heights location. It's very walkable with lots of restaurants, parks and studios near by. There was ample space to work and the kitchen was great to cook in!", 4, 3, 1)
+review_4 = create_review(title = "Amazing stay!", body = "I was so happy to spend a full two months at the Outsite house in North Boulder! ful roommates during my stay - I felt so lucky! Don't hesitate to spend time her if you love the outdoors and nature", score = 5, user_id = 1, location_id = 1)
+review_5 = create_review("Great and affordable to remote work and meet others!", "Outsite was truly a great experience. The WhatsApp group was an easy way to connect with others traveling/working in Lisbon. The accommodations are clean and kept up nicely by staff and others staying", 5, 2, 1)
+review_6= create_review("The Location, the people and the kitchen!","My stay in San Francisco was great. The house is large and in a perfect Pac heights location. It's very walkable with lots of restaurants, parks and studios near by. There was ample space to work and the kitchen was great to cook in!", 4, 3, 1)
+review_7 = create_review(title = "Amazing stay!", body = "I was so happy to spend a full two months at the Outsite house in North Boulder! ful roommates during my stay - I felt so lucky! Don't hesitate to spend time her if you love the outdoors and nature", score = 5, user_id = 1, location_id = 1)
 # review_8 = create_review("Great and affordable to remote work and meet others!", "Outsite was truly a great experience. The WhatsApp group was an easy way to connect with others traveling/working in Lisbon. The accommodations are clean and kept up nicely by staff and others staying", 5, 2, 8)
 # review_9 = create_review("The Location, the people and the kitchen!","My stay in San Francisco was great. The house is large and in a perfect Pac heights location. It's very walkable with lots of restaurants, parks and studios near by. There was ample space to work and the kitchen was great to cook in!", 4, 3, 9 )
 # review_10 = create_review("The Location, the people and the kitchen!","My stay in San Francisco was great. The house is large and in a perfect Pac heights location. It's very walkable with lots of restaurants, parks and studios near by. There was ample space to work and the kitchen was great to cook in!", 4, 3, 10 )
@@ -163,21 +161,21 @@ print(user_3)
 
 
 
-# review_check_1 = get_review_by_location_id(1)
-# review_check_2 = get_review_by_user_id(2)
-# review_check_3 = get_review_by_location_id(3)
-# review_check_1 = get_review_by_location_id(4)
-# review_check_2 = get_review_by_user_id(5)
-# review_check_3 = get_review_by_location_id(6)
-# review_check_1 = get_review_by_location_id(7)
-# review_check_2 = get_review_by_user_id(8)
-# review_check_3 = get_review_by_location_id(9)
-# review_check_1 = get_review_by_location_id(10)
+review_check_1 = get_review_by_location_id(1)
+review_check_2 = get_review_by_user_id(2)
+review_check_3 = get_review_by_location_id(3)
+review_check_1 = get_review_by_location_id(4)
+review_check_2 = get_review_by_user_id(5)
+review_check_3 = get_review_by_location_id(6)
+review_check_1 = get_review_by_location_id(7)
+review_check_2 = get_review_by_user_id(8)
+review_check_3 = get_review_by_location_id(9)
+review_check_1 = get_review_by_location_id(10)
 
-# print(review_1)
-# print(review_2)
-# print(review_3)
-# print(review_4)
+print(review_1)
+print(review_2)
+print(review_3)
+print(review_4)
 # print(review_5)
 # print(review_6)
 # print(review_7)

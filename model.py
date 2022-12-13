@@ -17,7 +17,7 @@ db = SQLAlchemy()
 
 
 
-class User(db.Model): #one user has many bookings - one to many relationship
+class User(db.Model): #one user can upload many recipies, reviews and locations- one to many relationship
     """A user."""
 
     __tablename__ = "users"
@@ -25,41 +25,49 @@ class User(db.Model): #one user has many bookings - one to many relationship
     user_id = db.Column(db.Integer,
                         autoincrement= True,
                         primary_key=True)
+    # recipe_id = db.Column(db.Integer, db.ForeignKey("recipes.recipe_id"))
+    # location_id = db.Column(db.Integer, db.ForeignKey("locations.location_id"))
+    # review_id = db.Column(db.Integer, db.ForeignKey("reviews.review_id"))
     fname = db.Column(db.String)
     lname = db.Column(db.String)
     email = db.Column(db.String, unique=True)
     password = db.Column(db.String)
     img = db.Column(db.String)
 
-    # locations = db.relationship("Location", back_populates="user")
-    reviews = db.relationship("Review", back_populates="users")
+    #user is singular because each location, review and recipe have one user
+    locations = db.relationship("Location", back_populates="user")
+    reviews = db.relationship("Review", back_populates="user")
+    recipes = db.relationship("Recipe", back_populates="user")
 
     def __repr__(self):
         return f'<User user_id={self.user_id} email={self.email} fname={self.fname} lname ={self.lname}>'
 
-#many to many relationship between users a locations, middle table that has reviews in it.
-#similar to locamen table below but with its own review attribute
+#each review has one user(many to one)
+#each review occurs at only one location(many to one)
 class Review(db.Model):
     """A review."""
 
     __tablename__ = "reviews"
 
-    review_id = db.Column(db.Integer, primary_key=True)
-    location_id = db.Column(db.Integer, db.ForeignKey("locations.location_id"), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"), nullable=False)
+    review_id = db.Column(db.Integer,
+                        autoincrement= True,
+                        primary_key=True)
+    location_id = db.Column(db.Integer, db.ForeignKey("locations.location_id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
     body = db.Column(db.Text, nullable=False)
     title = db.Column(db.Text, nullable=False)
     score = db.Column(db.Integer) #should be 1-5
 
-    locations = db.relationship("Location", back_populates="reviews")
-    users = db.relationship("User", back_populates="reviews")
+    #reviews is plural bc of many to one
+    location = db.relationship("Location", back_populates="reviews")
+    user = db.relationship("User", back_populates="reviews")
 
 
     def __repr__(self):
         #this sets the format of my review obj
         return f"<Review id={self.review_id} title = {self.title} body ={self.body} score = {self.score}>"
 
-class Location(db.Model): #one location has many reviews
+class Location(db.Model): #one location has many reviews and users(many to one)
     """A location."""
 
     __tablename__ = "locations"
@@ -67,19 +75,21 @@ class Location(db.Model): #one location has many reviews
     location_id = db.Column(db.Integer,
                         autoincrement= True,
                         primary_key=True)
+    # review_id = db.Column(db.Integer, db.ForeignKey("reviews.review_id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
     location_title = db.Column(db.String)
     price = db.Column(db.Integer)
     overview = db.Column(db.String)
     description = db.Column(db.String)
     img = db.Column(db.String)
 
-    reviews = db.relationship("Review", back_populates="locations")
-    # user = db.relationship("User", back_populates="locations")
+    reviews = db.relationship("Review", back_populates="location")
+    user = db.relationship("User", back_populates="locations")
 
     def __repr__(self):
         return f'<Location location_id={self.location_id} location_title={self.location_title} price={self.price}>'
 
-class Recipe(db.Model): #one recipe is related to a user that could have uploaded many recipies - one to many relationship
+class Recipe(db.Model): #one recipe is related to a user that could have uploaded many recipies - many to one relationship
     """A recipe."""
 
     __tablename__ = "recipes"
@@ -87,12 +97,12 @@ class Recipe(db.Model): #one recipe is related to a user that could have uploade
     recipe_id = db.Column(db.Integer,
                         autoincrement= True,
                         primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
     recipe_title = db.Column(db.String)
     recipe_description = db.Column(db.String)
     recipe_specs = db.Column(db.String)
 
-    #set up relationship to locations and location_amenties middle table
-    users = db.relationship("User", back_populates = "recipes")
+    user = db.relationship("User", back_populates = "recipes")
 
     def __repr__(self):
         return f'<Recipe recipe_id={self.recipe_id} recipe_title={self.recipe_title}>'
@@ -124,7 +134,6 @@ if __name__ == "__main__":
     os.system("dropdb projectdb --if-exists")
     os.system("createdb projectdb")
 
-    connect_to_db(app)
     with app.app_context():
         connect_to_db(app)
 

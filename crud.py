@@ -42,24 +42,24 @@ def get_user_by_id(user_id):
 
 
 #REVIEW FUNCTIONS
-# def create_review(title, body, score, user_id, location_id):
-#   """Create a review."""
+def create_review(title, body, score, user_id, location_id):
+  """Create a review."""
 
-#   review = Review(title = title, body = body, score = score, user_id = user_id, location_id = location_id)
-#   db.session.add(review)
-#   db.session.commit()
+  review = Review(title = title, body = body, score = score, user_id = user_id, location_id = location_id)
+  db.session.add(review)
+  db.session.commit()
 
-#   return review
+  return review
 
-# def get_review_by_location_id(location_id):
-#     """Get review by location id."""
+def get_review_by_location_id(location_id):
+    """Get review by location id."""
 
-#     return Review.query.filter(Review.location_id == location_id).first()
+    return Review.query.filter(Review.location_id == location_id).first()
 
-# def get_review_by_user_id(user_id):
-#     """Get review by user id."""
+def get_review_by_user_id(user_id):
+    """Get review by user id."""
 
-#     return Review.query.filter(Review.user_id == user_id).first()
+    return Review.query.filter(Review.user_id == user_id).first()
 
 
 #LOCATION FUNCTIONS
@@ -68,14 +68,14 @@ def get_user_by_id(user_id):
 
 #     return Location.query.all()
 
-# def create_location(location_title, price, overview, description, img, amenities):
-#   """Create a location instance."""
+def create_location(location_title, price, overview, description, img):
+  """Create a location instance."""
 
-#   location = Location(location_title = location_title, price = price, overview = overview, description = description, img = img, amenities = amenities)
-#   db.session.add(location)
-#   db.session.commit()
+  location = Location(location_title = location_title, price = price, overview = overview, description = description, img = img)
+  db.session.add(location)
+  db.session.commit()
 
-#   return location
+  return location
 
 # def get_location_by_id(location_id):
 #   """Get location by id."""
