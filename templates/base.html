@@ -1,23 +1,195 @@
 <!doctype html>
 <html>
   <head>
+    <link rel="stylesheet" href="/static/css/normalize.css"/>
+    <link rel="stylesheet" href="/static/css/site.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>
-      {% block title %}{% endblock %}
-    </title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel='icon' href='/static/img/logo/Favicon_2.png' type='image/x-icon' sizes="16x16" />
+    <link rel="mask-icon" href="/static/img/logo/Favicon_2.png/images/safari-pinned-tab.svg?v=M44lzPylqQ">
     {% block head %}{% endblock %}
   </head>
   <body>
-    {% for msg in get_flashed_messages() %}
-    <p class="flash-msg">
-      {{ msg }}
-    </p>
-    {% endfor %}
-    
-    {% block body %}{% endblock %}
+    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #D9BBA9;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+              <img src="/static/img/logo/Innsite_Logo.png" alt="" width="110" height="22">
+            </a>
+            <div class="collapse navbar-collapse nav-buttons-2020 desktop">
+                <div class="navbar-nav">
+                  <a class="navigation-link-2022 big w-nav-link" href="/about">What is Innsite?</a>
+                </div>
+                <div class="navbar-nav">
+                    <a class="navigation-link-2022 big w-nav-link" href="/locations"> <img class="navigation-link-2022 all-locations">Locations</a>
+                </div>
+                <div class="navbar-nav">
+                  <a class="navigation-link-2022 big w-nav-link" href="/book-now"> <img class="navigation-link-2022 book-now">Book Now</a>
+              </div>
+              <div class="navbar-nav">
+                {% if 'email' in session %}
+                <a class="navigation-link-2022 big w-nav-link" href="/profile"> <img class="navigation-link-2022 log-in">Hi, {{session['fname']}}</a>
+                {% else %}
+                <a class="navigation-link-2022 big w-nav-link" href="/login"> <img class="navigation-link-2022 log-in">Log In</a>
+                {% endif %}
+              </div>
+              <div class="navbar-nav">
+                <a href="/create-account" class="navigation-button two-layer-nav w-button">Become a Member</a>
+              </div>
+            </div>
+        </div>
+    </nav>
+    <div>
+      <!-- my flash messages -->
+      {% for msg in get_flashed_messages() %}
+      <p class="flash-msg">
+        {{ msg }}
+      </p>
+      {% endfor %}
 
-    {% block after_body %}{% endblock %}
+      {% block body %}{% endblock %}
+
+      {% block after_body %}{% endblock %}
+    </div>
+    <div class="footer wf-section">
+      <div class="dark-section-footer">
+        <div class="container">
+          <div class="w-layout-grid footer-grid-2 top">
+            <div id="w-node-b497ce8b-4431-11aa-85ee-d531ada6c9d7-c432da1b" class="footer-grid-item">
+              <h4 class="headline">Keep up with location openings, community events, and other news.</h4>
+              <div id="Footer-Email-Capture-2020" class="footer-email-capture-form w-form">
+                <form id="wf-form-Footer-Email-Capture-2020" name="wf-form-Footer-Email-Capture-2020" data-name="Footer Email Capture 2020" method="get" class="footer-email-form" aria-label="Footer Email Capture 2020" data-hs-cf-bound="true">
+                  <input type="email" class="text-field-2020 footer w-input" maxlength="256" name="email" data-name="Email" placeholder="name@email.com" id="email" required="">
+                  <input type="submit" value="→" data-wait="Please wait..." class="email-capture-cta w-button">
+                </form>
+            </div>
+          </div>
+          <div id="w-node-_70a7ba46-b12b-3bf8-3a3b-89e9fdfba512-c432da1b" class="footer-grid-item">
+            <div class="mini-testimonial-generator w-dyn-list">
+              <div role="list" class="w-dyn-items">
+                <div role="listitem" class="w-dyn-item">
+                  <div class="footer-testimonial-columns w-row">
+                    <div class="footer-testimonial-column-1 w-col w-col-3">
+                      <img src="https://global-uploads.webflow.com/5ab30f883c0d5f3ebc626470/5f857cdc0a4419689dbefc28_andra%20vomir%20testimonial.png" alt="" class="footer-testimonial-head">                  </div>
+                    <div class="footer-testimonial-column-2 w-col w-col-9">
+                      <div class="div-block-2384">
+                        <p class="footer-lparagraph">"It has the social benefits of a hostel, but with the privacy and professionalism that you need as a digital nomad...5 stars!"</p>
+                        <p class="headline">Gemma Thompson</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-layout-grid footer-grid-4">
+          <div class="footer-grid-item logo-column">
+            <a href="/" class="footer-link">
+            <img class= "footer-logo" src="/static/img/logo_footer_1.png" alt="" width="110" height="22">
+            </a>
+            <p class="footer-lparagraph">Coliving spaces, community, and perks designed for remote workers and creatives.</p>
+            <div class="footer-divider">
+          </div>
+        </div>
+          <div id="w-node-_66478074-6170-bf6e-34d2-071631eee9d6-c432da1b" class="footer-grid-item">
+            <h4 class="headline">Product</h4>
+            <div class="div-block-51">
+              <p class="footer-text">
+                <a href="/locations" class="footer-link">Locations</a>
+              </p>
+              <p class="footer-text">
+                <a href="/locations" class="footer-link">Spaces</a>
+              </p>
+              <p class="footer-text">
+                <a href="" class="footer-link">Community</a>
+              </p>
+              <p class="footer-text">
+                <a href="/about" class="footer-link">Benefits</a>
+              </p><p class="footer-text">
+                <a href="" class="footer-link">Member Deals</a>
+              </p><p class="footer-text">
+                <a href="" target="_blank" class="footer-link">Innsite Cowork Cafes</a>
+              </p><p class="footer-text">
+                <a href="" class="footer-link">Team Retreats</a>
+              </p>
+              <p class="footer-text">
+                <a href="" class="footer-link">Business Memberships</a>
+              </p>
+              <p class="footer-text">
+                <a href="" class="footer-link">FAQ / Help Center</a>
+              </p>
+              <p class="footer-text">
+                <a href="" class="footer-link">Reviews</a>
+              </p>
+            </div>
+          </div>
+          <div id="w-node-ed00c1c0-0693-d675-4287-3ab2896c26d7-c432da1b" class="footer-grid-item"><h4 class="headline">Company</h4>
+            <div class="div-block-51">
+              <p class="footer-text">
+                <a href="/about" target="_blank" class="footer-link">About Us</a>
+              </p>
+              <div class="footer-text">
+                <a href="/about" target="_blank" class="footer-link">Values </a>
+              </div>
+              <p class="footer-text">
+                <a href="/" target="_blank" class="footer-link">Press</a>
+              </p>
+              <p class="footer-text">
+                <a href="/about" target="_blank" class="footer-link">Sustainability</a>
+              </p>
+              <p class="footer-text">
+                <a href="" class="footer-link">Real Estate Partners</a>
+              </p>
+              <p class="footer-text">
+                <a href="" class="footer-link">Earn $50 per Referral</a>
+              </p>
+              <p class="footer-text">
+                <a href="" target="_blank" class="footer-link">Code of Conduct</a>
+              </p>
+              <p class="footer-text">
+                <a href="" class="footer-link">Privacy Policy</a>
+              </p>
+            </div>
+          </div>
+          <div id="w-node-e2614b17-f0fd-3ff9-42dd-4e8c381b3c03-c432da1b" class="footer-grid-item">
+            <h4 class="headline">Connect</h4>
+            <div class="div-block-51">
+              <p class="footer-text">
+                <a href="/new-review" class="footer-link">Contact Us</a>
+              </p>
+              <p class="footer-text">
+                <a href="" class="footer-link">Ultimate Guides</a>
+              </p>
+              <p class="footer-text">
+                <a href="" class="footer-link">Blog</a>
+              </p>
+            </div>
+            <div class="div-block-123">
+              <div class="social-link-block">
+                <a href="https://www.facebook.com" class="w-inline-block">
+                  <img src="/static/img/facebook.png" alt="Innsite Facebook Share Icon" class="social-image">
+                </a>
+                <a href="https://www.instagram.com" class="w-inline-block">
+                  <img src="/static/img/instagram.png" alt="Innsite Instagram Share Icon" class="social-image">
+                </a>
+                <a href="https://twitter.com" class="w-inline-block">
+                  <img src="/static/img/twitter.png" alt="Innsite Twitter Share Icon" class="social-image">
+                </a>
+                <a href="https://www.youtube.com" class="w-inline-block">
+                  <img src="/static/img/youtube.png" alt="Innsite Youtube Share Icon" class="social-image">
+                </a>
+                <a href="https://www.linkedin.com" class="w-inline-block">
+                  <img src="/static/img/linkedIn.png" alt="..." class="social-image">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

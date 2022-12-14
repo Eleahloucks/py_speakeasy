@@ -1,42 +1,74 @@
 {% extends 'base.html' %}
-{% block title %}Movie Ratings Home{% endblock %}
+{% block title %}Innsite Home{% endblock %}
 
 {% block body %}
-  <h1>Welcome!</h1>
+<div class="page-wrapper">
+  <!-- home banner -->
+  <div class="home-banner-section wf-section">
+    <div class="w-layout-grid banner-grid">
+      <div id="w-node-d52a46ce-0d31-e1b0-01db-283ed97addc6-4d35f4d9" class="hero-2020-text-block">
+        <h1 class="text-5xl mt-0">Work anywhere.<br>Live differently.</h1>
+        <p class="text-xl is--light mt-sm">Beautiful places to stay, designed for remote workers.</p>
+        <div class="hero-btns-wrapper mt-lg">
+          <div>
+            <a href='/create-account' class="btn btn-rounded innsite-button-green">Become a Member</a>
+          </div>
+          <div class="hero-btns-wrapper__item">
+            <a href="/book-now" class="btn-outlined--black _w-100 w-button">Book a Stay</a>
+          </div>
+        </div>
+      </div>
+      <div class="home-banner-image"></div>
+    </div>
+  </div>
+  <!-- press line -->
+  <div class="press-bar">
+    <div class="container">
+      <img src="https://global-uploads.webflow.com/5ab14126edfae6905fd3ff69/5f1894dbeeaab4af17a8a215_Press%20Desktop%20-.png"
+      alt="Innsite Press - Desktop"
+      srcset="https://global-uploads.webflow.com/5ab14126edfae6905fd3ff69/5f1894dbeeaab4af17a8a215_Press%20Desktop%20--p-500.png 500w,
+      https://global-uploads.webflow.com/5ab14126edfae6905fd3ff69/5f1894dbeeaab4af17a8a215_Press%20Desktop%20--p-800.png 800w,
+      https://global-uploads.webflow.com/5ab14126edfae6905fd3ff69/5f1894dbeeaab4af17a8a215_Press%20Desktop%20--p-1080.png 1080w,
+      https://global-uploads.webflow.com/5ab14126edfae6905fd3ff69/5f1894dbeeaab4af17a8a215_Press%20Desktop%20-.png 2153w"
+      sizes="(max-width: 767px) 100vw, (max-width: 991px) 704px, (max-width: 1279px) 94vw, (max-width: 1439px) 1200px, (max-width: 1919px) 94vw, 1456px"
+      class="press-desktop">
+    </div>
+  </div>
+  <!-- locations cards -->
+  <div class="section two-paddings wf-section">
+    <div class="container">
+      <div class="max-w-md align-left">
+        <h4>Locations<br></h4>
+        <h3>Find your home on the coast, in <br>the mountains, or in the city.</h3>
+      </div>
+      <div class="location-list-wrapper w-dyn-list">
+        <div role="list" class="location-card__columns row">
+          {% for location in locations %}
+          <div role="listitem" class="location-card__item col-3">
+            <a href="locations/{{location.location_id}}" class="location-card__link w-inline-block">
+              <div style="background-image:url(&quot;{{location.img}}&quot;)" class="location-card__cover-img"></div>
+              <h5 class="text-lg mt-xs">{{location.location_title}}</h5>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- home banner 2 -->
+  <div class="regular-section-2020 cta-section-2020 wf-section">
+    <div class="container">
+      <div class="cta-text-div-2020">
+        <h3 data-w-id="2cda8961-9680-f092-a647-fde26ce34877" class="cta-section__heading mt-0" style="opacity: 1;">Work anywhere. Live differently.<br>Join us today.</h3>
+      </div>
+      <div data-w-id="2cda8961-9680-f092-a647-fde26ce3487b" class="cta-section__btn-wrapper mt-lg" style="opacity: 1;">
+        <a href='/create-account' class="btn-solid--white _w-100 w-button">Become a Member</a>
+        <a href="/book-now" class="btn-outlined--white _w-100 w-button">Book a Stay</a>
+      </div>
+    </div>
+  </div>
+<!-- end page wrapper -->
+</div>
 
-  <h2>Navigation</h2>
-  <ul>
-    <li><a href="/movies">View all movies</a></li>
-    <li><a href="/users">View all users</a></li>
-  </ul>
-
-  <h2>Create an Account</h2>
-  <form action="/users" method="POST">
-    <p>
-      Email <input type="text" name="email">
-    </p>
-
-    <p>
-      Password <input type="password" name="password">
-    </p>
-
-    <p>
-      <input type="submit">
-    </p>
-  </form>
-
-  <h2>Log In</h2>
-  <form action="/login" method="POST">
-    <p>
-      Email <input type="text" name="email">
-    </p>
-
-    <p>
-      Password <input type="password" name="password">
-    </p>
-
-    <p>
-      <input type="submit">
-    </p>
-  </form>
 {% endblock %}
+
