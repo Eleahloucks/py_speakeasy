@@ -35,68 +35,68 @@ function initMap() {
     {
       name: 'William & Graham',
       coords: {
-        lat: 40.01563220031631,
-        lng: -105.27025676465864,
+        lat: 39.76194,
+        lng: -105.011026
       },
     },
     {
-      name: 'Lisbon, Portugal',
+      name: 'Bourbon & Branch',
       coords: {
         lat: 38.7242049777057,
         lng: -9.13926109963694,
       },
     },
     {
-      name: 'San Francisco, CA',
+      name: 'The Roosevelt Room',
       coords: {
         lat: 37.75550777992014,
         lng: -122.4945940666157,
       },
     },
     {
-      name: 'Manhattan, NY',
+      name: 'Fig. 19',
       coords: {
         lat: 40.732509540838706,
         lng: -73.98777282542899,
       },
     },
     {
-      name: 'Puerto Rico, San Juan',
+      name: 'Foxtrot',
       coords: {
         lat: 18.410867123820488,
         lng: -66.04850152288675,
       },
     },
     {
-      name: 'Morocco, North Africa',
+      name: 'Green Russel',
       coords: {
         lat: 33.66335789287453,
         lng: -7.228298824177478,
       },
     },
     {
-      name: 'Bidart, France',
+      name: 'License No. 1',
       coords: {
         lat: 43.44625284939808,
         lng: -1.5884287992049693,
       },
     },
     {
-      name: 'Canggu, Bali',
+      name: 'Retrograde',
       coords: {
         lat: -8.65471615699866,
         lng: 115.12576792271399,
       },
     },
     {
-      name: 'Fuerteventura, Canary Islands',
+      name: 'B&GC',
       coords: {
         lat: 28.30226540939817,
         lng: -13.908063377779829,
       },
     },
     {
-      name: 'Santa Teresa, Costa Rica',
+      name: 'WC Harlan',
       coords: {
         lat: 9.631830142859062,
         lng: -85.13586287262456,
