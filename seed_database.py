@@ -54,22 +54,20 @@ location_1 = create_location(
   "Classic Craftsman in Colorado.",
   "Made for a cozy mountain getaway, Boulder University Hill maintains its original wooden banister, fireplaces, and wooden floorboards. It has a wine cellar downstairs, and its large back deck is perfect for relaxing with your housemates. The neighborhood is known for its hilly roads, Victorian houses, and its close proximity to UC Boulder. It's a very bikeable area, and just minutes from the Boulder Farmer's Market or Pearl Street, where you'll find great restaurants, cafes, and shopping. Outsite Boulder - University Hill is a serviced coliving space designed to be the perfect hub for digital nomads, flexible professionals, and business travellers looking to live, work, and connect.",
   "/static/img/boulder.jpeg")
-# location_2 = create_location(
-#   "Lisbon, Portugal",
-#   1365,
-#   "Comfortable coliving inside a historic building.",
-#   "Outsite Lisbon is a traditional Lisbon building,- you’ll recognize it from it’s blue and white azulejos on the outside from Rua Sao Paulo. Pick a sea view on the south facing side of the building, or select a room with a balcony for the ultimate people-watching perch. There are 25 rooms in total, with a shared kitchen facility between every 5 rooms, and a large coworking space on the ground floor. Outsite Lisbon - Cais do Sodre is a serviced coliving space designed to be the perfect hub for digital nomads, flexible professionals, and business travellers looking to live, work, and connect.",
-#   "/static/img/lisbon.jpeg",
-#   [amenity_1, amenity_2, amenity_3, amenity_4, amenity_5, amenity_6, amenity_7, amenity_8, amenity_9, amenity_10, amenity_11, amenity_12, amenity_13, amenity_14, amenity_15, amenity_16, amenity_17, amenity_18, amenity_19, amenity_20, amenity_21]
-#   )
-# location_3 = create_location(
-#   'San Francisco, CA',
-#   2968,
-#   "A modern San Francisco home on California Street.",
-#   "Make yourself at home in this four-floor house in Pacific Heights, San Francisco. There are 9 private bedrooms total, 6 of which have a shared bathroom, and 3 of which have their own en-suite. There's a backyard for summer barbecues, a modern, fully equipped kitchen and workspace in-house. Outsite San Francisco - Pacific Heights is a serviced coliving space designed to be the perfect hub for digital nomads, flexible professionals, and business travellers looking to live, work, and connect.",
-#   "/static/img/sanfrancisco.jpeg",
-#   [amenity_1, amenity_2, amenity_3, amenity_4, amenity_5, amenity_6, amenity_7, amenity_8, amenity_9, amenity_10, amenity_11, amenity_12, amenity_13, amenity_14, amenity_15, amenity_16, amenity_17, amenity_18, amenity_19, amenity_20, amenity_21]
-#   )
+location_2 = create_location(
+  "Lisbon, Portugal",
+  1365,
+  "Comfortable coliving inside a historic building.",
+  "Outsite Lisbon is a traditional Lisbon building,- you’ll recognize it from it’s blue and white azulejos on the outside from Rua Sao Paulo. Pick a sea view on the south facing side of the building, or select a room with a balcony for the ultimate people-watching perch. There are 25 rooms in total, with a shared kitchen facility between every 5 rooms, and a large coworking space on the ground floor. Outsite Lisbon - Cais do Sodre is a serviced coliving space designed to be the perfect hub for digital nomads, flexible professionals, and business travellers looking to live, work, and connect.",
+  "/static/img/lisbon.jpeg"
+  )
+location_3 = create_location(
+  'San Francisco, CA',
+  2968,
+  "A modern San Francisco home on California Street.",
+  "Make yourself at home in this four-floor house in Pacific Heights, San Francisco. There are 9 private bedrooms total, 6 of which have a shared bathroom, and 3 of which have their own en-suite. There's a backyard for summer barbecues, a modern, fully equipped kitchen and workspace in-house. Outsite San Francisco - Pacific Heights is a serviced coliving space designed to be the perfect hub for digital nomads, flexible professionals, and business travellers looking to live, work, and connect.",
+  "/static/img/sanfrancisco.jpeg"
+  )
 # location_4 = create_location(
 #   'Manhattan, NY',
 #   3003,
